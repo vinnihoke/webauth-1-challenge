@@ -4,8 +4,8 @@ const find = () => {
 	return db('users').select('id', 'name');
 }
 
-const add = () => {
-	return db('useres')
+const add = (user) => {
+	return db('users')
 		.insert(user, 'id')
 		.then(ids => {
 			const [ id ] = ids;
@@ -15,13 +15,11 @@ const add = () => {
 
 const findBy = (filter) => {
 	return db('users')
-		.select('id', 'name')
 		.where(filter)
 }
 
 const findById = (id) => {
 	return db('users')
-		.select('id', 'name')
 		.where({ id })
 		.first()
 }

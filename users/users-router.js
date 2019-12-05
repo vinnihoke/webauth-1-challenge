@@ -4,6 +4,8 @@ const Users = require('./users-model.js');
 
 const router = express.Router();
 
+const bcrypt = require('bcryptjs');
+
 
 
 router.get('/users', async (req, res) => {
@@ -19,8 +21,11 @@ router.get('/users', async (req, res) => {
 	}
 });
 
-router.get('/register', async (req, res) => {
+router.post('/register', async (req, res) => {
 	let user = req.body;
+	const hash = bcrypt.hashSync(user.password, 14);
+	user.password = hash;
+
 	try {
 		const item = await Users.add(user);
 		if(item){
@@ -32,8 +37,9 @@ router.get('/register', async (req, res) => {
 		res.status(500).json({ error: e.message });
 	}
 });
-router.get('/login', async (req, res) => {
-	let { name, password } = req.body 
+
+router.post('/login', async (req, res) => {
+	let { name, password } = req.headers 
 	try {
 		const item = await Users.findBy({ name }).first();
 		if(item){
