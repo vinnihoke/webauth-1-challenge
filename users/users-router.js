@@ -6,8 +6,7 @@ const router = express.Router();
 
 const bcrypt = require('bcryptjs');
 
-
-
+// Operational
 router.get('/users', async (req, res) => {
 	try {
 		const item = await Users.find();
@@ -21,9 +20,16 @@ router.get('/users', async (req, res) => {
 	}
 });
 
+// Operational
 router.post('/register', async (req, res) => {
+
+	// Grab user from req.body
 	let user = req.body;
+
+	// Hash the user password
 	const hash = bcrypt.hashSync(user.password, 14);
+
+	// Add hashed password as user.password
 	user.password = hash;
 
 	try {
@@ -38,14 +44,15 @@ router.post('/register', async (req, res) => {
 	}
 });
 
+// Operationa
 router.post('/login', async (req, res) => {
-	let { name, password } = req.headers 
+	let { name, password } = req.body 
 	try {
-		const item = await Users.findBy({ name }).first();
-		if(item){
-			res.status(200).json(item)
+		const currentUser = await Users.findBy({ name }).first()
+		if(currentUser && bcrypt.compareSync(password, currentUser.password)){
+			res.status(200).json({ message: `Logged in`, uid: currentUser.id })
 		} else {
-			res.status(404).json({ message: "No user match" })
+			res.status(404).json({ message: "You shall not pass!" })
 		}
 	} catch (e) {
 		res.status(500).json({ error: e.message });
