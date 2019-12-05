@@ -1,11 +1,12 @@
 dependencies:
+  bcryptjs: 2.4.3
   dotenv: 8.2.0
   express: 4.17.1
   helmet: 3.21.2
-  knex: 0.20.3_sqlite3@4.1.0
+  knex: 0.20.3_sqlite3@4.1.1
   morgan: 1.9.1
   nodemon: 2.0.1
-  sqlite3: 4.1.0
+  sqlite3: 4.1.1
 lockfileVersion: 5.1
 packages:
   /abbrev/1.1.1:
@@ -185,6 +186,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-pDAdOJtqQ/m2f/PKEaP2Y342Dp4=
+  /bcryptjs/2.4.3:
+    dev: false
+    resolution:
+      integrity: sha1-mrVie5PmBiH/fNrF2pczAn3x0Ms=
   /binary-extensions/2.0.0:
     dev: false
     engines:
@@ -1553,7 +1558,7 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha512-s5kLOcnH0XqDO+FvuaLX8DDjZ18CGFk7VygH40QoKPUQhW4e2rvM0rwUq0t8IQDOwYSeLK01U90OjzBTme2QqA==
-  /knex/0.20.3_sqlite3@4.1.0:
+  /knex/0.20.3_sqlite3@4.1.1:
     dependencies:
       bluebird: 3.7.2
       colorette: 1.1.0
@@ -1566,7 +1571,7 @@ packages:
       lodash: 4.17.15
       mkdirp: 0.5.1
       pg-connection-string: 2.1.0
-      sqlite3: 4.1.0
+      sqlite3: 4.1.1
       tarn: 2.0.0
       tildify: 2.0.0
       uuid: 3.3.3
@@ -2500,7 +2505,7 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha512-NzNVhJDYpwceVVii8/Hu6DKfD2G+NrQHlS/V/qgv763EYudVwEcMQNxd2lh+0VrUByXN/oJkl5grOhYWvQUYiw==
-  /sqlite3/4.1.0:
+  /sqlite3/4.1.1:
     dependencies:
       nan: 2.14.0
       node-pre-gyp: 0.11.0
@@ -2508,7 +2513,7 @@ packages:
     dev: false
     requiresBuild: true
     resolution:
-      integrity: sha512-RvqoKxq+8pDHsJo7aXxsFR18i+dU2Wp5o12qAJOV5LNcDt+fgJsc2QKKg3sIRfXrN9ZjzY1T7SNe/DFVqAXjaw==
+      integrity: sha512-CvT5XY+MWnn0HkbwVKJAyWEMfzpAPwnTiB3TobA5Mri44SrTovmmh499NPQP+gatkeOipqPlBLel7rn4E/PCQg==
   /sshpk/1.16.1:
     dependencies:
       asn1: 0.2.4
@@ -2905,10 +2910,11 @@ packages:
     resolution:
       integrity: sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g==
 specifiers:
+  bcryptjs: ^2.4.3
   dotenv: ^8.2.0
   express: ^4.17.1
   helmet: ^3.21.2
   knex: ^0.20.3
   morgan: ^1.9.1
   nodemon: ^2.0.1
-  sqlite3: ^4.1.0
+  sqlite3: ^4.1.1
