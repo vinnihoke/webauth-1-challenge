@@ -6,19 +6,7 @@ const router = express.Router();
 
 const bcrypt = require('bcryptjs');
 
-// Operational
-router.get('/users', async (req, res) => {
-	try {
-		const item = await Users.find();
-		if(item){
-			res.status(200).json(item)
-		} else {
-			res.status(404).json({ message: "No users" })
-		}
-	} catch (e) {
-		res.status(500).json({ error: e.message });
-	}
-});
+
 
 // Operational
 router.post('/register', async (req, res) => {
