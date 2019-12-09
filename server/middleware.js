@@ -1,6 +1,6 @@
 const restricted = async (req, res, next) => {
 
-	// ! MAKE SURE YOU HAVE ASYNC/AWAIT 
+	// ! MAKE SURE YOU HAVE ASYNC/AWAIT IF REQUIRED
 	if(req.session && req.session.user){
 		// try {
 		// 	const currentUser = await Users.findBy({ name })
