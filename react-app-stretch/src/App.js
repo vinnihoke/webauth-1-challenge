@@ -8,10 +8,10 @@ import AuthFlow from './views/AuthFlow.jsx';
 function App() {
   return (
     <Router>
-    <AuthFlow />
-    <Switch>
-        <PrivateRoute path="/dashboard" component={Dashboard} />>
-    </Switch>
+      <AuthFlow />
+      <Switch>
+          <PrivateRoute path="/dashboard" component={Dashboard} />>
+      </Switch>
     </Router>
   );
 }

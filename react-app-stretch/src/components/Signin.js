@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import axios from 'axios';
+import { axiosWithAuth } from '../auth/AxiosWithAuth.js';
 
 // UI
 import { Input } from 'antd';
 
-const Signin = () => {
+const Signin = (props) => {
 
 	const [ credentials, setCredentials ] = useState({
 		name: "",
@@ -17,10 +17,13 @@ const Signin = () => {
 		setCredentials({...credentials, [name]: value })
 	}
 
-	const onSubmit = async (e) => {
+	const onSubmit = (e) => {
 		e.preventDefault();
-		axios.post('http://localhost:3895/api/login', credentials)
-			.then(res => console.log(res))
+		axiosWithAuth().post('http://localhost:3895/api/login', credentials)
+			.then(res => {
+				localStorage.setItem('token', res.data.token);
+				props.history.push('/dashboard')
+			})
 			.catch(err => console.log(err));
 	}
 
